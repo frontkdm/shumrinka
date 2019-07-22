@@ -1,0 +1,632 @@
+/***********************************/
+ 
+/* MEDIA QUERIES */
+ 
+/***********************************/
+@media screen and (max-width: 1600px) {
+  .blog-filters {
+    max-width: 65%;
+  }
+
+  .tourism-filter {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .slider-controls {
+    position: static;
+    transform: translateY(0);
+    justify-content: flex-end;
+
+    .btn-slider {
+      transform: translateX(0);
+      &:active {
+        transform: scale(.95) translateX(0);
+      }
+    }
+
+    [data-dir="Prev"] {
+      margin-right: 15px;
+    }
+
+  }
+
+  .blog-slider ~ .slider-controls {
+    margin-top: 20px;
+    transform: translateY(0);
+  }
+
+}
+
+@media screen and (max-width: 1280px) {
+  .header-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    padding: 25px;
+    background-color: rgba(24, 19, 19, .99);
+    z-index: 10;
+    will-change: transform, opacity;
+
+    transform: translateX(-105%);
+    opacity: 0;
+    transition: transform .25s ease-in-out,
+                opacity .25s ease-in-out;
+    overflow-y: auto;
+
+    &.move-right {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    // display: none;
+  }
+
+  .header-menu {
+    flex-direction: column;
+    margin-top: 155px;
+    &-item {
+      padding: 15px 0;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 900;
+    }
+  }
+
+  .separator-horizontal {
+    display: none;
+  }
+
+  .page-header {
+    .socials {
+      display: none;
+    }
+
+    .logo {
+      order: 2;
+    }
+
+  }
+
+  .header-actions {
+    order: 1;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  .btn-mobile {
+    position: relative;
+    display: block;
+    order: 3;
+    z-index: 15;
+  }
+
+  .section-heading {
+    font-size: 34px;
+    &::before, &::after {
+      width: 45px;
+    }
+  }
+
+  .card-horizontal {
+    .card-image {
+      flex: 0 0 100%;
+      max-width: 100%;
+      max-height: none;
+      min-height: 0; 
+      height: 380px; 
+    }
+    .card-body {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .footer-logo {
+    width: 150px;
+    margin: 0 auto 50px;
+  }
+
+  .footer-nav {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .footer-menu {
+    &-item {
+      flex: 0 0 20%;
+      max-width: 20%;
+    }
+  }
+
+  .subscription-form {
+    max-width: 100%;
+  }
+
+  .filter-options {
+    min-width: 100%;
+  }
+
+  .card-wine {
+    min-height: 320px;
+    img {
+      height: 280px;
+    }
+    .card-body {
+      padding-right: 100px;
+      h3 {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .col-4to12:nth-last-child(-n+2) {
+    .principle {
+      margin-bottom: 0;
+    }
+  }
+
+  .principle {
+    margin-bottom: 95px;
+  }
+
+  .blog-filters {
+    max-width: 75%;
+  }
+
+  .contacts-info {
+    &-right {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    &-left {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .contacts-form {
+    max-width: 100%;
+    .btn-primary {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .departments {
+    margin-top: 50px;
+  }
+
+  .tourism-filter {
+    max-width: 100%;
+  }
+
+  .buyout-map {
+    left: 35%;
+  }
+
+  .buyout-addresses {
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+
+  .item-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 550px;
+    min-height: 550px;
+    max-height: 550px;
+    justify-content: center;
+    margin-bottom: 30px;
+    img {
+      object-position: center;
+    }
+  }
+
+  .breadcrubs {
+    display: none;
+  }
+
+  .item-description {
+    flex: 0 0 100%;
+    max-width: 100%;
+    > .btn {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .index-slider {
+    min-height: 340px;
+    .card-wrapper {
+      min-height: 340px;
+    }
+    img {
+      height: 280px;
+    } 
+  }
+
+  .item-map {
+    max-width: 400px;
+    margin: 40px auto;
+  }
+
+  .item-specs {
+    flex-wrap: wrap;
+  }
+
+  .item-spec {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .page-section.section-image {
+    min-height: 280px;
+  }
+
+  .card-info {
+    &-image {
+      min-height: 190px;
+      max-height: 190px;
+      height: 190px;
+    }
+  }
+
+  .card {
+    &-image {
+      max-height: 290px;
+      min-height: 290px;
+      height: 290px;
+    }
+  }
+
+  .blog-filters {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom: 50px;
+    > * + * {
+      margin-top: 15px;
+    }
+  }
+
+  .btn-filter {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .gallery-image {
+    min-height: auto;
+    height: auto;
+    img {
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .tourism-filter {
+    flex-direction: column;
+    align-items: center; 
+    > * + * {
+      margin-top: 15px;
+    }
+  }
+
+  .modal {
+    width: 95%;
+    max-height: 680px;
+    padding: 45px 15px;
+    overflow-y: auto;
+    .section-heading span {
+      max-width: none;
+    }
+  }
+
+  .buyout-map {
+    
+    left: 0;
+  }
+
+  .buyout-addresses {
+    transform: translateX(-15px);
+    flex: 0 0 50%;
+    max-width: 50%;
+    transition: transform .2s ease-in-out;
+    &.move-left {
+      transform: translateX(-105%);
+    }
+  }
+
+  .show-addresses {
+    display: block;
+  }
+
+  
+
+}
+
+@media screen and (max-width: 840px) {
+
+  .section-title {
+    margin-bottom: 30px;
+  }
+
+  .card-info-body h3 span {
+    max-width: 190px;
+  }
+
+  .page-section:not(.intro-section) {
+    padding: 2em 0;
+  }
+
+  .close-search {
+    justify-content: flex-end;
+    max-width: 100%;
+    width: 992px;
+    margin: 50px auto;
+  }
+
+  .section-heading span {
+    max-width: 210px;
+    margin: 0 5px;
+  }
+
+  .card-body h3 {
+    font-size: 22px;
+  }
+
+  .card-horizontal {
+    .card-image {
+      flex: 0 0 100%;
+      max-height: none;
+      min-height: 480px; 
+      height: 480px; 
+    }
+    .card-body {
+      flex: 0 0 100%;
+    }
+  }
+
+  .blog-slider h3 {
+    left: 15px;
+    width: calc(100% - 15px);
+  }
+
+  .order-m-1 {
+    order: 1;
+  }
+
+  .order-m-2 {
+    order: 2;
+  }
+
+  .order-m-3 {
+    order: 3;
+  }
+
+  .footer-menu {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    &-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+      margin-bottom: 30px;
+    }
+    &-link {
+      margin-bottom: 3px;
+    }
+  }
+
+  .footer-submenu {
+    &-item {
+      padding: 3px 0;
+    }
+  }
+
+  .footer-left {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 2;
+    text-align: center;
+  }
+
+  .copyright {
+    margin-bottom: 5px;
+  }
+
+  .madeby {
+    justify-content: center;
+  }
+
+  .footer-right {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 1;
+    margin-bottom: 50px;
+    text-align: left;
+  }
+
+  .subscription-form {
+    justify-content: center;
+    text-align: center;
+    .form-group {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:first-child {
+        flex: 0 0 100%;
+        margin-right: 0;
+      }
+
+      &:nth-child(3) {
+        flex: 0 0 auto;
+        max-width: auto;
+        order: 3;
+        margin-top: 30px;
+      }
+
+    }
+
+    .privacy {
+      order: 2;
+      margin-top: 10px;
+    }
+  }
+
+  .search-inner {
+    margin: 20vh auto;
+  }
+
+  .search-announces {
+    display: none;
+  }
+
+  .filter-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 10px 15px;
+  }
+
+  .col-4to12:nth-last-child(-n+2) {
+    .principle {
+      margin-bottom: 85px;
+    }
+  }
+
+  .col-4to12:last-child {
+    .principle {
+      margin-bottom: 0;
+    }
+  }
+
+  .review {
+    &:nth-child(even) &-slider-wrapper {
+      order: 2;
+    }
+    &-body {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    &-slider-wrapper {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .review-slider {
+    min-height: 255px;
+  }
+
+  .review .btn-play,
+  .news-bottom .btn-play {
+    width: 65px;
+    height: 65px;
+  }
+
+  .video-wrapper video {
+    min-height: 255px;
+  }
+
+  .winery-map {
+    max-width: 400px;
+    margin: 40px auto;
+  }
+
+  .filter-label {
+    text-align: left;
+  }
+
+  .contacts-info {
+    &-right {
+      text-align: center;
+    }
+  }
+
+  .contacts {
+    &-left {
+      h2 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        text-align: center;
+      }
+    }
+    &-right {
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  .page-section.section-image .section-top-heading {
+    font-size: 32px;
+  }
+
+  .tourims-program {
+    flex-wrap: wrap;
+    ul {
+      flex: 0 0 100%;
+    }
+  }
+
+  .tourism-map h2,
+  .programs-section h2,
+  .review-section h2,
+  .tourism-specials h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .catalog-slider {
+    margin: 0 -35px;
+    .card-wrapper {
+      padding-top: 0;
+    }
+  }
+
+  .faq-answers-wrapper {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .search-input {
+    font-size: 56px;
+    &::placeholder {
+      font-size: 56px;
+    }
+  }
+
+  .buyout-form {
+    max-width: 100%;
+  }
+
+  .buyout-addresses {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .tourism-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+}

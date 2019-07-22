@@ -1,0 +1,1203 @@
+/***********************************/
+
+/* INDEX PAGE STYLES */
+
+/***********************************/
+.intro-section {
+  min-height: 100vh;
+  background-image: url(../images/backgrounds/bg_header.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  color: #fff;
+
+  img {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: inherit;
+  }
+}
+
+.page-slider-wrapper {
+  position: relative;
+
+  .slick-initialized .slick-slide {
+    display: flex;
+  }
+
+  .card-wrapper {
+    position: relative;
+    display: none;
+    min-height: 630px;
+    padding: 40px 35px;
+    align-items: flex-end;
+  }
+
+  h3 {
+    font-weight: 900;
+  }
+}
+
+.slider-controls {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  transform: translateY(-80%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  [data-dir="Prev"] {
+    transform: translateX(-120%);
+    &:active {
+      transform: scale(.95) translateX(-120%);
+    }
+  }
+
+  [data-dir="Next"] {
+    transform: translateX(120%);
+    &:active {
+      transform: scale(.95) translateX(120%);
+    }
+  }
+}
+
+.index-slider {
+  margin: 0 -35px;
+  min-height: 630px;
+
+  .card-body {
+    padding-right: 165px;
+    max-width: 100%;
+  }
+
+  img {
+    position: absolute;
+    bottom: 60px;
+    right: 55px;
+  }
+}
+
+.blog-slider {
+  min-height: 480px;
+
+  ~ .slider-controls {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .card-wrapper {
+    padding: 0;
+    min-height: auto;
+  }
+
+  h3 {
+    position: absolute;
+    left: 45px;
+    bottom: 45px;
+    width: calc(100% - 45px);
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 48px;
+    z-index: 2;
+  }
+}
+
+.about-text {
+  color: @color-grey;
+  line-height: 20px;
+}
+
+.about-image {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.top-section {
+  margin-top: 100px;
+}
+
+/***********************************/
+
+/* CATALOG PAGE STYLES */
+
+/***********************************/
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.filter-wrapper {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+.filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid @color-primary;
+  color: @color-grey;
+
+  &.expanded {
+    z-index: 5;
+  }
+
+  &.expanded &-options {
+    transform: translateY(100%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.expanded {
+    &.with-arrow::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.with-arrow {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 25px;
+    width: 12px;
+    height: 7px;
+    background-image: url(../images/icons/icon_arrow_down.svg);
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+.filter-label {
+  width: 100%;
+  display: block;
+  padding: 16px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.filter-options {
+  position: absolute;
+  left: -2px;
+  bottom: 0;
+  width: calc(100% + 4px);
+  // min-width: 360px;
+  padding: 10px 25px;
+  border: 2px solid @color-primary;
+  border-top: 0;
+  background-color: #fff;
+  transform: translateY(70%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out;
+}
+
+.catalog-filters {
+  margin-bottom: 20px;
+}
+
+.filter-option {
+  display: block;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.filter-result {
+  .card-wine {
+    padding: 20px 0;
+  }
+
+  .card {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/***********************************/
+
+/* CATALOG INNER STYLES */
+
+/***********************************/
+.breadcrubs {
+  display: flex;
+  margin: 0 0 60px;
+  padding: 0;
+  list-style-type: none;
+
+  a:not(span) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: @color-grey;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 7px;
+      margin: 0 15px;
+      background-image: url(../images/icons/icon_arrow_down.svg);
+      background-repeat: no-repeat;
+      transform: rotateZ(-90deg);
+    }
+  }
+}
+
+.item-image {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+  height: 960px;
+  min-height: 960px;
+  max-height: 960px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 80px;
+  }
+}
+
+.item-description {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+.item-description-chunk {
+  padding: 14px 0;
+  color: @color-grey;
+  font-size: 24px;
+  b {
+    color: @color-text;
+  }
+}
+
+.item-specs {
+  display: flex;
+  margin: 25px -15px 0;
+}
+
+.item-spec {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+
+  h3 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+    color: @color-grey;
+  }
+}
+
+.item-map {
+  margin: 40px 0;
+}
+
+.catalog-slider {
+  margin: 0 -45px;
+  ~ .slider-controls {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .card-wrapper {
+    min-height: auto;
+    padding: 40px 35px;
+  }
+  .card-image {
+    min-height: 100%;
+    max-height: none;
+    height: auto;
+  }
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+/***********************************/
+
+/* ABOUT PAGE STYLES */
+
+/***********************************/
+.principles {
+  padding-top: 70px;
+}
+
+.principle {
+  position: relative;
+  h3 {
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
+  .card-body {
+    padding: 85px 20px 20px;
+  }
+
+  .card-icon {
+    position: absolute;
+    top: -65px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    background-color: @color-primary;
+    // margin-top: -65px;
+  }
+}
+
+.review {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 30px -15px;
+
+  &:nth-child(even) &-body {
+    order: 2;
+  }
+
+  &:nth-child(even) &-slider-wrapper {
+    order: 1;
+  }
+
+  &-body {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+
+    &-title {
+      margin-bottom: 15px;
+      color: @color-primary;
+      font-weight: 900;
+
+      h3 {
+        margin-bottom: 0;
+        font-size: 36px;
+        font-weight: inherit;
+        color: inherit;
+      }
+
+      h4 {
+        margin-bottom: 0;
+        font-size: 24px;
+        font-weight: inherit;
+        color: inherit;
+      }
+    }
+
+    &-question {
+      margin: 35px 0;
+      h3 {
+        margin-bottom: 5px;
+        font-size: 24px;
+        font-weight: 900;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &-slider-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+  }
+
+  .btn-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .btn-slider:first-child {
+    margin-right: 10px;
+  }
+}
+
+.review-slider {
+  min-height: 500px;
+  ~ .slider-controls {
+    transform: translate(0);
+    justify-content: flex-end;
+    position: static;
+    .btn-slider {
+      transform: translate(0);
+      &:active {
+        transform: scale(.95);
+      }
+    }
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  display: none;
+  margin-bottom: 20px;
+
+  video {
+    width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    background-color: #e3e3e3;
+  }
+}
+
+/***********************************/
+ 
+/* WINERY PAGE STYLES */
+ 
+/***********************************/
+.page-section.section-image {
+  --section-opaticy: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 350px;
+  padding: 30px 0;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+  background-size: cover;
+  color: #fff;
+  transition: min-height .2s ease-in-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    width: 100%; height: 100%;
+    background-color: @color-primary;
+    opacity: var(--section-opaticy);
+    z-index: 2;
+  }
+
+  .section-title { margin-bottom: 0; }
+  .section-top-heading {    
+    position: relative;
+    display: inline-block;
+    font-size: 64px;
+    line-height: 1;
+    margin-bottom: 0;
+    z-index: 3;
+    
+  }
+
+  h1 {color: inherit;}
+
+}
+
+.winery-info {
+  h3 {
+    color: @color-primary;
+    font-size: 36px;
+  }
+  &block {
+    margin: 20px 0;
+    h4 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+    p {
+      margin: 0;
+      color: @color-grey;
+    }
+  }
+}
+
+/***********************************/
+ 
+/* NEWS INNER STYLE */
+ 
+/***********************************/
+.news-text {
+  color: @color-grey;
+  line-height: 20px;
+}
+
+.news-image {
+  min-height: 360px;
+  height: 360px;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+.news-middle {
+  margin: 65px 0;
+  line-height: 20px;
+  color: @color-grey;
+}
+
+.news-bottom {
+  .video-wrapper {
+    display: flex;
+  }
+  .btn-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+/***********************************/
+ 
+/* BLOG PAGE STYLES */
+ 
+/***********************************/
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 70px;
+
+
+}
+
+.blog-filters {
+  max-width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: space-between;
+}
+
+.filter-result .card {
+  margin: 15px 0;
+}
+
+.blog-text {
+  line-height: 20px;
+  color: @color-grey;
+
+  h2 {
+    color: @color-text;
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+}
+
+.gallery-image {
+  min-height: 400px;
+  height: 400px;
+  padding: 15px 0;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+.blog-image {
+  height: 360px;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+.blog-bottom {
+  h2 {
+    font-size: 24px;
+  }
+}
+
+/***********************************/
+ 
+/* CONTACTS PAGE STYLES */
+ 
+/***********************************/
+.contacts-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  h2 {
+    font-size: 48px;
+  }
+
+  
+
+}
+
+.contacts-form {
+  max-width: 85%;
+  margin-top: auto;
+
+  .submit-group {
+    margin-top: 60px;
+  }
+
+}
+
+.contacts-right {
+  h1 {
+    font-size: 48px;
+    margin-bottom: 70px;
+  }
+}
+
+.contacts-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  font-size: 24px;
+  color: @color-text;
+
+  &-right {
+    flex: 0 0 50%;
+    max-width: 50%; 
+    padding: 0 15px;
+    font-weight: 900;
+
+    > * + * {
+      margin-top: 30px;
+    }
+
+    h1 {
+      margin-bottom: 70px;
+    }
+
+    address {
+      font-style: normal;
+      line-height: 26px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+  }
+
+  &-left {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+
+    
+  }
+
+}
+
+.department {
+  margin-bottom: 30px;
+  &:last-child { margin-bottom: 0; }
+}
+
+.department-contacts {
+  
+  color: @color-grey;
+}
+
+.department-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5px 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+  }
+
+}
+
+.department-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: @color-primary;
+
+}
+
+#map {
+  height: 800px;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+/***********************************/
+ 
+/* TOURISM PAGE STYLES */
+ 
+/***********************************/
+.tourism-map {
+  h2 {
+    margin-bottom: 70px;
+    font-size: 36px;
+  }
+}
+
+#tourism-map {
+  height: 500px;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+.toursim-benefits {
+  margin-top: -50px;
+}
+
+.programs-section {
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 36px;
+  }
+}
+
+.card-tourism-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px 40px;
+}
+
+.tourism-info {
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+  color: @color-text;
+  font-weight: 900;
+  font-size: 18px;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    background-color: @color-primary;
+  }
+}
+
+.card-tourism {
+  margin: 25px 0;
+  h3 {
+    text-transform: none;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+}
+
+.tourims-program {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  ul {
+    margin: 0;
+    padding: 0 15px 0 20px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    flex-shrink: 0;
+  }
+
+}
+
+.tourism-living {
+  h2 {
+    font-size: 36px;
+    text-align: center;
+  }
+}
+
+.living-benefits {
+  h3 {
+    margin-bottom: 0;
+    font-size: 24px;
+    text-transform: none;
+    text-align: center;
+  }
+}
+
+.tourism-specials {
+  h2 {
+    font-size: 36px;
+    text-transform: none;
+    text-align: center;
+  }
+}
+
+.principles-special {
+  h3 {
+    font-size: 24px;
+    text-transform: none;
+  }
+}
+
+.booking-section {
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.booking-body {
+  a {
+    display: block;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 900;
+    color: @color-text;
+  }
+}
+
+.review-section {
+  h2 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .card-image {
+    min-height: 320px;
+  }
+}
+
+/***********************************/
+ 
+/* TOURISM INNER PAGE STYLES */
+ 
+/***********************************/
+.card-room {
+  .card-image {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: auto;
+    max-height: none;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    p {
+      margin-top: 10px;
+      min-height: 0;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+  }
+
+  .btn {
+    margin-top: auto;
+  }
+
+}
+
+.room-info {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    background-color: @color-primary;
+  }
+
+  span {
+    font-weight: 900;
+    font-size: 18px;
+    color: @color-text;
+  }
+
+}
+
+.tourism-slide {
+  &-image {
+    height: 500px;
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.tourism-slider ~ .slider-controls {
+  position: static;
+  transform: translate(0);
+  justify-content: flex-end;
+
+  [data-dir="Prev"] {
+    transform: translate(0);
+    margin-right: 10px;
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
+  [data-dir="Next"] {
+    transform: translate(0);
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
+}
+
+.tourism-filter {
+  max-width: 60%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+/***********************************/
+ 
+/* BUYOUT PAGE STYLES  */
+ 
+/***********************************/
+.buyout {
+  position: relative;
+  display: flex;
+  max-height: 850px;
+
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  &-addresses {
+    position: relative;
+    flex: 0 0 25%;
+    max-width: 25%;
+    max-height: 850px;
+    padding: 0 15px;
+    overflow-y: auto;
+    z-index: 2;
+    background-color: #fff;
+  }
+
+  &-map {
+    position: absolute;
+    top: 0; left: 25%;
+    width: 100%; height: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  &-form {
+    max-width: 75%;
+    img {
+      position: absolute;
+      top: 50%; right: 30px;
+      transform: translateY(-50%);
+    }
+  }
+
+}
+
+.buyout-cities {
+  margin-top: 30px;
+
+  > * + * {
+    margin-top: 30px;
+  }
+
+}
+
+.buyout-city {
+  cursor: pointer;
+  h3 {
+    font-size: 24px;
+  }
+}
+
+.city-address {
+  display: flex;
+  align-items: center;
+
+  &-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background-color: @color-primary;
+    background-image: url(../images/icons/icon_marker.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center center;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+}
+
+.buyout-map {
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
+
+.show-addresses {
+  display: none;
+}
+
+/***********************************/
+ 
+/* FAQ PAGE STYLES */
+ 
+/***********************************/
+.faq-questions {
+  > * + * {
+    margin-top: 30px;
+  }
+}
+
+.btn-faq {
+  font-weight: 900;
+  font-size: 36px;
+  cursor: pointer;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    color: @color-primary;
+  }
+
+  &.active {
+    color: @color-primary;
+  }
+}
+
+.faq-answers-wrapper {
+  position: relative;
+  max-width: 90%;
+  margin-left: auto;
+}
+
+.faq-answers {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s ease-in-out,
+              visibility .2s ease-in-out;
+
+  &.show {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+
+.faq-answer {
+  
+  padding: 0 30px;
+  border-bottom: 1px solid @color-primary;
+  color: @color-grey;
+
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 15px;
+    cursor: pointer;
+    
+    h3 {
+      margin-bottom: 0;
+      color: inherit;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    img {
+      transition: transform .2s ease-in-out;
+      &.rotate {
+        transform: rotateZ(180deg);
+      }
+    }
+
+  }
+  
+  &-body {
+    display: none;
+    padding: 20px 0;
+  }
+}
+
+/***********************************/
+ 
+/* 404 PAGE STYLES */
+ 
+/***********************************/
+.section-404 {
+  padding: 0;
+  min-height: calc(100vh - 100px);
+  background-image: url(../images/404.jpg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  text-align: center;
+}
+
+.notfound {
+  font-size: 290px;
+  line-height: 1;
+  font-weight: 900;
+  color: @color-text;
+}
