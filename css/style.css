@@ -440,8 +440,8 @@ img {
 .page-section {
   position: relative;
 }
-.page-section:not(.intro-section) .section-inner {
-  margin-top: 125px;
+.page-section:not(.intro-section) {
+  margin-top: 60px;
   padding: 4em 0;
 }
 .section-title {
@@ -549,7 +549,6 @@ img {
   font-size: 24px;
   line-height: 30px;
   min-height: 1em;
-  text-transform: uppercase;
 }
 .card-body a:not(.btn) {
   text-decoration: none;
@@ -1084,6 +1083,14 @@ img {
   -webkit-justify-content: center;
           justify-content: center;
 }
+.justify-start {
+  -webkit-justify-content: flex-start !important;
+          justify-content: flex-start !important;
+}
+.align-start {
+  -webkit-align-items: flex-start !important;
+          align-items: flex-start !important;
+}
 .with-bg-1::before {
   content: "";
   position: absolute;
@@ -1524,9 +1531,9 @@ img {
   min-height: 100px;
   padding: 15px 0;
   z-index: 10;
-  transition: background 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   -webkit-filter: blur(0);
           filter: blur(0);
   transition: -webkit-filter 0.2s ease-in-out;
@@ -1551,7 +1558,13 @@ img {
   /* <== Анимируем псевдоэлемент с бэкграундом, вместо того, чтобы красить сам хедер. Таким образом не происходит repaint */
   opacity: 1;
 }
+.page-header.is-moving .header-submenu::before {
+  opacity: 1;
+}
 .page-header.active::before {
+  opacity: 1;
+}
+.page-header.active .header-submenu::before {
   opacity: 1;
 }
 .header-inner {
@@ -1575,16 +1588,37 @@ img {
   list-style-type: none;
 }
 .header-menu-item {
+  position: relative;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-          align-items: center;
+  -webkit-align-items: baseline;
+          align-items: baseline;
   padding: 0 25px;
   color: #1c1c1c;
+}
+.header-menu-item:hover .header-submenu {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.header-menu-item:hover span {
+  -webkit-transform: translateX(101%);
+          transform: translateX(101%);
+}
+.header-menu-item:hover a::before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.header-menu-item:hover a::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 .header-menu-link {
   position: relative;
   display: inline-block;
+  margin-right: 5px;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
@@ -1619,19 +1653,41 @@ img {
   transition: transform 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   color: #D99A61;
 }
-.header-menu-link:hover span {
-  -webkit-transform: translateX(101%);
-          transform: translateX(101%);
+.header-submenu {
+  position: absolute;
+  top: 2.5em;
+  min-width: 230px;
+  margin: 0;
+  padding: 0 15px;
+  background-color: transparent;
+  list-style-type: none;
+  opacity: 0;
+  -webkit-transform: translateY(-25%);
+          transform: translateY(-25%);
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
-.header-menu-link:hover::before {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+.header-submenu::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0px 10px 30px rgba(35, 34, 34, 0.1);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
-.header-menu-link:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transform-origin: right;
-          transform-origin: right;
+.header-submenu-item {
+  padding: 0.8em 0;
+}
+.header-submenu-link {
+  text-decoration: none;
+  color: #1c1c1c;
 }
 .header-actions {
   display: -webkit-flex;
@@ -1783,13 +1839,43 @@ img {
   display: flex;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin: 0 -15px;
 }
 .filter-wrapper {
   -webkit-flex: 0 0 25%;
           flex: 0 0 25%;
   max-width: 25%;
   padding: 0 15px;
+}
+.filter-checkbox {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  cursor: pointer;
+}
+.filter-checkbox input:checked ~ .fake-checkbox::before {
+  opacity: 1;
+}
+.fake-checkbox {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  border: 2px solid #D99A61;
+}
+.fake-checkbox::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #D99A61;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 .filter {
   position: relative;
@@ -2205,6 +2291,9 @@ img {
   -webkit-justify-content: center;
           justify-content: center;
   margin-bottom: 70px;
+}
+.filters > * + * {
+  margin-left: 50px;
 }
 .blog-filters {
   max-width: 50%;
@@ -2748,7 +2837,6 @@ img {
 .page-footer .socials {
   display: -webkit-flex;
   display: flex;
-  margin-top: 10px;
 }
 .page-footer .socials a {
   margin-bottom: 0;
@@ -3214,14 +3302,15 @@ img {
   }
 }
 @media screen and (max-width: 840px) {
+  .page-section:not(.intro-section) .section-inner {
+    margin-top: 0;
+    padding: 2em 0;
+  }
   .section-title {
     margin-bottom: 30px;
   }
   .card-info-body h3 span {
     max-width: 190px;
-  }
-  .page-section:not(.intro-section) {
-    padding: 2em 0;
   }
   .close-search {
     -webkit-justify-content: flex-end;
