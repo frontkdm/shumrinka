@@ -50,6 +50,29 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
   console.log('Lazyload is ready')
 })();
 
+(function () {
+
+  const animated = document.querySelectorAll('.animated');
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.intersectionRatio > 0) {
+          entry.target.classList.add('active');
+        }
+      })
+    })
+
+    animated.forEach(a => {
+      io.observe(a);
+    })
+
+  }
+
+  console.log('Animated is ready');
+
+})();
+
 $(function () {
 
   let body = $('body'),

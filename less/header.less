@@ -30,6 +30,36 @@
     transition: opacity .2s ease-in-out;
   }
 
+  &.is-moving .btn-search path,
+  &.active .btn-search path {
+    fill: @color-text;
+  }
+
+  &.is-moving .separator-horizontal,
+  &.active .separator-horizontal {
+    background-color: @color-text;
+  }
+
+  &.is-moving .header-menu,
+  &.is-moving .header-submenu {
+    color: @color-text;
+  }
+
+  &.is-moving .logo,
+  &.active .logo {
+    img {
+      opacity: 0;
+    }
+    img:last-child {
+      opacity: 1;
+    }
+  }
+
+  &.active .header-submenu,
+  &.active .header-menu {
+    color: @color-text;
+  }
+
   &.is-moving::before { /* <== Анимируем псевдоэлемент с бэкграундом, вместо того, чтобы красить сам хедер. Таким образом не происходит repaint */
     opacity: 1;
   }
@@ -46,13 +76,29 @@
     opacity: 1;
   }
 
-
 }
 
 .header-inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.logo {
+  position: relative;
+  width: 90px;
+  height: 70px;
+
+  img {
+    position: absolute;
+    top: 0; left: 0;
+    transition: opacity .2s ease-in-out;
+
+    &:last-child { 
+      opacity: 0;
+    }
+  }
+
 }
 
 .header-nav {
@@ -65,13 +111,14 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  color: #fff;
 
   &-item {  
     position: relative;
     display: flex;
     align-items: baseline;
     padding: 0 25px;
-    color: @color-text;
+    color: inherit;
 
     &:hover {
 
@@ -138,7 +185,7 @@
   transform: translateY(-25%);
   transition: transform .4s ease-in-out,
               opacity .2s ease-in-out;
-
+  color: #fff;
   
   
   &::before {
@@ -162,7 +209,7 @@
 
   &-link {
     text-decoration: none;
-    color: @color-text;
+    color: inherit;
   }
 
 }
